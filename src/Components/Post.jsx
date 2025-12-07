@@ -10,7 +10,7 @@ const Post = ({ category, fileName }) => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/posts/${category}/${fileName}.md`;
+    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${fileName}.md`;
 
     fetch(url)
       .then((res) => res.text())
