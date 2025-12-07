@@ -14,7 +14,7 @@ const Home = () => {
         <li>5. 스타일링</li>
       </ul>
 
-      <button onClick={() => navigate("/post/html/2025-12-07-test")}>
+      <button onClick={() => navigate("/posts/html/2025-12-07-test")}>
         테스트 글 보기
       </button>
     </>
