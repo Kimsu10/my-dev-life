@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
-import "../style/custom.css";
+import "../style/darkMode.css";
+import DarkModeToggle from "../Components/darkModeToggle";
 
 /**
  * Markdown Rendering
@@ -35,11 +36,14 @@ const Post = ({ category, fileName }) => {
   }, [fileName]);
 
   return (
-    <div className="markdown-body">
-      <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeHighlight]}>
-        {content}
-      </ReactMarkdown>
-    </div>
+    <>
+      <DarkModeToggle />
+      <div className="markdown-body">
+        <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeHighlight]}>
+          {content}
+        </ReactMarkdown>
+      </div>
+    </>
   );
 };
 
