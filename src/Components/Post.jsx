@@ -2,29 +2,16 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
-import "../style/darkMode.css";
 import DarkModeToggle from "../Components/darkModeToggle";
+import extractHeadings from "../utils/extractHeadings";
+import Toc from "./toc/Toc";
+import { headingComponents } from "./toc/heading";
+import "../style/darkMode.css";
 
-/**
- * Markdown Rendering
- * @param {*} param
- * @returns file directory url
- */
 const Post = ({ category, fileName }) => {
   const [content, setContent] = useState("");
+  const [headings, setHeadings] = useState([]);
 
-  // 레포지토리 public 후 사용가능 => 작동 ✅
-  // useEffect(() => {
-  //   const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${fileName}.md`;
-
-  //   fetch(url)
-  //     .then((res) => res.text())
-  //     .then((text) => {
-  //       setContent(text);
-  //     });
-  // }, [fileName]);
-
-  // 로컬 테스트용
   useEffect(() => {
     const url = `/posts/${category}/${fileName}.md`;
 
@@ -32,16 +19,23 @@ const Post = ({ category, fileName }) => {
       .then((res) => res.text())
       .then((text) => {
         setContent(text);
+        setHeadings(extractHeadings(text));
       });
   }, [fileName]);
 
   return (
     <>
       <DarkModeToggle />
-      <div className="markdown-body">
-        <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeHighlight]}>
-          {content}
-        </ReactMarkdown>
+      <div className="markdown-layout">
+        <Toc headings={headings} />
+        <div className="markdown-body">
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw, rehypeHighlight]}
+            components={headingComponents}
+          >
+            {content}
+          </ReactMarkdown>
+        </div>
       </div>
     </>
   );

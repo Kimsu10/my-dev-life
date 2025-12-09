@@ -1,4 +1,11 @@
 /* ------------------------ */
+/*  목차 클릭시 효과        */
+/* ------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ------------------------ */
 /*  기본 애니메이션         */
 /* ------------------------ */
 
@@ -181,6 +188,7 @@
   --quote-bg: #1c1b2c;
   --table-border: #333;
   --table-header: #1a1723;
+  --sidebar-bg: #1c1c1c;
 }
 
 /* ------------------------------- */
@@ -195,4 +203,102 @@ body {
 
 .markdown-body {
   color: var(--text);
+}
+
+/* --------------------- */
+/*  사이드바             */
+/* --------------------- */
+/* 중앙 본문 배치 */
+.markdown-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+/* 본문 */
+.markdown-body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 오른쪽 TOC */
+.markdown-toc {
+  position: fixed;
+  top: 120px;
+  right: 30px;
+  width: 220px;
+  padding: 1rem;
+  background: var(--sidebar-bg, #fafafa);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.markdown-toc h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.markdown-toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.markdown-toc a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.markdown-toc li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.markdown-toc li:hover {
+  background-color: var(--accent, #7d5fff);
+}
+
+.markdown-toc li:hover a {
+  color: white;
+}
+
+/* --------------------- */
+/*  반응형               */
+/* --------------------- */
+@media (max-width: 1298px) {
+  .markdown-container {
+    flex-direction: column;
+  }
+
+  .markdown-toc {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    max-height: unset;
+    overflow: visible;
+  }
+
+  .markdown-toc ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  .markdown-toc li {
+    margin: 0;
+  }
 }
