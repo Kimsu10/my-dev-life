@@ -15,7 +15,7 @@ const Home = () => {
       </ul>
 
       <button onClick={() => navigate("/post/html/2025-12-09-test")}>
-        테스트 글 보기
+        테스트 글 페이지
       </button>
     </>
   );
