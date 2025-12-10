@@ -12,3 +12,5 @@ const createId = (children) => {
     .toLowerCase()
     .replace(/[^\w가-힣]+/g, "-");
 };
+
+export default createId;

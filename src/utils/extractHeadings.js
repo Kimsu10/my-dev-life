@@ -1,4 +1,4 @@
-import { createId } from "./createId";
+import createId from "./createId";
 
 const extractHeadings = (markdownText) => {
   const headingRegex = /^(#{1,6})\s+(.*)/gm;
