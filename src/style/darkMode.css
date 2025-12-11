@@ -175,7 +175,7 @@ html {
   --inline-code-bg: #1e1e1e;
   --quote-bg: #f7f5ff;
   --table-border: #ddd;
-  --table-header: #f0edff;
+  --table-header: #799fff;
   transition: 0.3s;
 }
 
@@ -186,8 +186,8 @@ html {
   --code-text: #e8e8e8;
   --inline-code-bg: #222;
   --quote-bg: #1c1b2c;
-  --table-border: #333;
-  --table-header: #1a1723;
+  --table-border: #828282;
+  --table-header: #541bff;
   --sidebar-bg: #1c1c1c;
 }
 

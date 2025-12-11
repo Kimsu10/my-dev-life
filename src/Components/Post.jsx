@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
+
 import DarkModeToggle from "../Components/darkModeToggle";
 import extractHeadings from "../utils/extractHeadings";
 import Toc from "./toc/Toc";
+
 import { headingComponents } from "./toc/heading";
+
 import "../style/darkMode.css";
+// import "../style/table.css";
 
 const Post = ({ category, fileName }) => {
   const [content, setContent] = useState("");
@@ -30,6 +35,7 @@ const Post = ({ category, fileName }) => {
         <Toc headings={headings} />
         <div className="markdown-body">
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={headingComponents}
           >
