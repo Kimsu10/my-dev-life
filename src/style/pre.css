@@ -1,0 +1,109 @@
+/* --------------------- */
+/* 전체 코드 블록 스타일 */
+/* --------------------- */
+
+.markdown-body pre {
+  position: relative;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 0;
+  border-radius: 12px;
+  margin: 24px 0;
+  overflow: hidden; /* pre는 고정 */
+}
+
+/* -------------------- */
+/*  제목줄(상단 바)     */
+/* -------------------- */
+.markdown-body pre::before {
+  content: "";
+  display: block;
+  height: 32px;
+  background: #e5e5e5;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+/* ---------------- */
+/*  상단바 3버튼    */
+/* ---------------- */
+.markdown-body pre::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 14px;
+  width: 36px;
+  height: 12px;
+  background: radial-gradient(circle, #ff5f57 50%, transparent 52%) 0 0,
+    radial-gradient(circle, #ffbd2e 50%, transparent 52%) 12px 0,
+    radial-gradient(circle, #28c840 50%, transparent 52%) 24px 0;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+}
+/* -------------------- */
+/*  코드 영역  */
+/* -------------------- */
+.markdown-body pre code {
+  display: block;
+  padding: 16px;
+  padding-top: 24px;
+  overflow-x: auto;
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ------------------- */
+/*  폰트 색            */
+/* ------------------- */
+/* 키워드: const, let, function, return */
+.hljs-keyword {
+  color: #c586c0;
+  font-weight: 600;
+}
+
+/* 타입: int, String, boolean */
+.hljs-type {
+  color: #4ec9b0;
+}
+
+/* 숫자 */
+.hljs-number {
+  color: #b5cea8;
+}
+
+/* 문자열 */
+.hljs-string {
+  color: #ce9178;
+}
+
+/* 주석 */
+.hljs-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+
+/* console, Math, JSON 등 built-in 객체 */
+.hljs-built_in {
+  color: #4ec9b0;
+}
+
+/* 함수 이름 */
+.hljs-title {
+  color: #dcdcaa;
+}
+
+/* 변수명 / 파라미터 */
+.hljs-variable,
+.hljs-params {
+  color: #9cdcfe;
+}
+
+/* 연산자(=, +, -, => 등) */
+.hljs-operator {
+  color: #d4d4d4;
+}
+
+/* 괄호, 콤마, 세미콜론 등 */
+.hljs-punctuation {
+  color: #d4d4d4;
+}

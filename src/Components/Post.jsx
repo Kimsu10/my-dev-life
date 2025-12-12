@@ -12,6 +12,8 @@ import { headingComponents } from "./toc/heading";
 
 import "../style/darkMode.css";
 // import "../style/table.css";
+import "../style/pre.css";
+import CodeBlock from "./CodeBlock";
 
 const Post = ({ category, fileName }) => {
   const [content, setContent] = useState("");
@@ -37,7 +39,10 @@ const Post = ({ category, fileName }) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
-            components={headingComponents}
+            components={{
+              code: CodeBlock,
+              ...headingComponents,
+            }}
           >
             {content}
           </ReactMarkdown>
