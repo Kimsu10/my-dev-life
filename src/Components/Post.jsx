@@ -18,6 +18,7 @@ import CodeBlock from "./CodeBlock";
 const Post = ({ category, fileName }) => {
   const [content, setContent] = useState("");
   const [headings, setHeadings] = useState([]);
+  const [modalImage, setModalImage] = useState(null);
 
   useEffect(() => {
     const url = `/posts/${category}/${fileName}.md`;
@@ -42,10 +43,23 @@ const Post = ({ category, fileName }) => {
             components={{
               code: CodeBlock,
               ...headingComponents,
+              img: ({ node, ...props }) => (
+                <img
+                  {...props}
+                  className="markdown-img"
+                  alt={props.alt}
+                  onClick={() => setModalImage(props.src)}
+                />
+              ),
             }}
           >
             {content}
           </ReactMarkdown>
+          {modalImage && (
+            <div className="image-modal" onClick={() => setModalImage(null)}>
+              <img src={modalImage} className="image-modal-content" />
+            </div>
+          )}
         </div>
       </div>
     </>

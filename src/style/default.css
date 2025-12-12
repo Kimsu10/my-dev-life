@@ -1,3 +1,6 @@
+/* ------------------- */
+/*  페이지 기본 요소   */
+/* ------------------- */
 .flex-row-container {
   display: flex;
   align-items: center;
@@ -21,4 +24,42 @@
 .written-date {
   margin: 0;
   color: #747474;
+}
+
+/* ------------------- */
+/*  기본 이미지 스타일 */
+/* ------------------- */
+.markdown-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: zoom-in;
+  display: block;
+  margin: 20px auto;
+}
+
+/* ------------------- */
+/*  모달 배경          */
+/* ------------------- */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+/* ------------------- */
+/*  모달 내부 이미지   */
+/* ------------------- */
+.image-modal-content {
+  max-width: 95%;
+  max-height: 90%;
+  border-radius: 8px;
 }
