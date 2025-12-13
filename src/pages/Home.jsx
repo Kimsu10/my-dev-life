@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import Header from "../Components/header/Header";
+import Nav from "../Components/nav/Nav";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <>
+      <Header />
+      <Nav />
       <h1>Make My DEV Diary</h1>
       <ul>
         <li>✅ 1. Markdown 렌더링 </li>

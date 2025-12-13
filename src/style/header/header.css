@@ -1,0 +1,55 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+  max-width: 1080px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 왼쪽 로고 */
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+}
+
+/* 오른쪽 메뉴 */
+.header-right {
+  display: flex;
+  gap: 24px;
+}
+
+.header-right a {
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.header-right a:hover {
+  color: #000;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+body.dark .header {
+  background-color: rgba(20, 20, 20, 0.95);
+  border-bottom-color: #333;
+}
