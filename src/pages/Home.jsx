@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/header/Header";
-import Nav from "../Components/nav/Nav";
+import "../style/default.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Nav />
       <h1>Make My DEV Diary</h1>
       <ul>
         <li>✅ 1. Markdown 렌더링 </li>

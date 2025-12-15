@@ -1,0 +1,61 @@
+.category-container {
+  width: 100%;
+  max-width: 72rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: inset 0px 0px 10px #666;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.category-card {
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.category-card.first-row {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* --------------- */
+/*  카테고리 제목  */
+/* --------------- */
+.category-card h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #a12fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------------- */
+/*  카테고리 리스트 */
+/* ---------------- */
+.category-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-card li {
+  font-size: 15px;
+  color: #333;
+  padding: 6px 0;
+  line-height: 1.6;
+  border-radius: 8px;
+  padding: 0.4rem 0.5rem;
+}
+
+.category-card li:hover {
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #a12fff;
+}
