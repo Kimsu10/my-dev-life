@@ -24,8 +24,8 @@ const Header = () => {
                   : ""
               }`}
               onClick={() => handleToolbarClick("develop")}
-              onMouseEnter={() => setHoverToolbar("develop")}
-              onMouseLeave={() => setHoverToolbar(null)}
+              // onMouseEnter={() => setHoverToolbar("develop")}
+              // onMouseLeave={() => setHoverToolbar(null)}
             >
               Develop
             </button>
@@ -37,8 +37,8 @@ const Header = () => {
                   : ""
               }`}
               onClick={() => handleToolbarClick("devops")}
-              onMouseEnter={() => setHoverToolbar("devops")}
-              onMouseLeave={() => setHoverToolbar(null)}
+              // onMouseEnter={() => setHoverToolbar("devops")}
+              // onMouseLeave={() => setHoverToolbar(null)}
             >
               DevOps
             </button>
