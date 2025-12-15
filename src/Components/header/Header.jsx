@@ -51,8 +51,9 @@ const Header = () => {
           </div>
 
           <nav className="header-right">
-            <span>페이지</span>
-            <span>검색바</span>
+            <span>
+              <img src="/images/blog/search.png" className="search-img" />
+            </span>
           </nav>
         </div>
       </header>

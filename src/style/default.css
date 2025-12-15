@@ -1,3 +1,9 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* ------------------- */
 /*  페이지 기본 요소   */
 /* ------------------- */
@@ -62,4 +68,22 @@
   max-width: 95%;
   max-height: 90%;
   border-radius: 8px;
+}
+
+/*  스크롤 바          */
+::-webkit-scrollbar {
+  height: 8px; /* 가로 스크롤바 높이 */
+  width: 8px; /* 세로 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.7);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 120, 120, 1);
 }
