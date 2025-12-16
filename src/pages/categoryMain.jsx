@@ -9,6 +9,7 @@ const CategoryMain = () => {
 
   useEffect(() => {
     // const url = "https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/html"; //요청 성공 url
+    // http://localhost:3000/develop/basic/html
     const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${topic}`;
     fetch(url)
       .then((res) => res.json())
@@ -44,15 +45,20 @@ const CategoryMain = () => {
 
         <section className="topic-content-container">
           <p> {topic} 관련 글 목록</p>
-          {/* 동적으로 글이 생성되게 하기 */}
-          {/* API 요청 - GET https://api.github.com/repos/{owner}/{repo}/contents/{path} */}
           <div className="post-list">
             {posts.map((post) => {
               const { date, title } = parsePostName(post.name);
               return (
                 <div key={post.name} className="post-item">
-                  <div className="post-date">{date}</div>
-                  <div className="post-title">{title}</div>
+                  <img
+                    src={`/images/category/${topic}.png`}
+                    alt={`${topic} thumbnail`}
+                    className="topic-img"
+                  />
+                  <div>
+                    <h2 className="post-title">{title}</h2>
+                    <p className="post-date">{date}</p>
+                  </div>
                 </div>
               );
             })}
