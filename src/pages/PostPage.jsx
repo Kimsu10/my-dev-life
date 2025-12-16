@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import Post from "../Components/Post";
 import "../style/default.css";
+import Header from "../Components/header/Header";
+
 const PostPage = () => {
   const { category, name } = useParams();
 
@@ -11,13 +13,16 @@ const PostPage = () => {
   const title = rest.join("-");
 
   return (
-    <div style={{ maxWidth: 800, margin: "0 auto", padding: 20 }}>
-      <div className="flex-column-container" style={{ height: 40 }}>
-        <h1 className="page-title">{title}</h1>
-        <p className="written-date">{date}</p>
+    <>
+      <Header />
+      <div style={{ maxWidth: 800, margin: "0 auto", padding: 20 }}>
+        <div className="flex-column-container" style={{ height: 40 }}>
+          <h1 className="page-title">{title}</h1>
+          <p className="written-date">{date}</p>
+        </div>
+        <Post category={category} fileName={name} />
       </div>
-      <Post category={category} fileName={name} />
-    </div>
+    </>
   );
 };
 

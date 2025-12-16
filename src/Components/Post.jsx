@@ -21,7 +21,14 @@ const Post = ({ category, fileName }) => {
   const [modalImage, setModalImage] = useState(null);
 
   useEffect(() => {
-    const url = `/posts/${category}/${fileName}.md`;
+    // local 테스트용
+    // const url = `/posts/${category}/${fileName}.md`;
+
+    // github API 정확한 경로
+    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${fileName}.md`;
+
+    console.log("category:", category);
+    console.log("fileName:", fileName);
 
     fetch(url)
       .then((res) => res.text())
