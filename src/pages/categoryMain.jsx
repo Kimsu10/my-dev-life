@@ -6,11 +6,15 @@ import { useEffect, useState } from "react";
 const CategoryMain = () => {
   const { category, topic } = useParams();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // const url = "https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/html"; //요청 성공 url
     // http://localhost:3000/develop/basic/html
+    if (!topic) return;
+
     const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${topic}`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
