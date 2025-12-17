@@ -43,7 +43,6 @@ const Post = ({ category, topic, fileName }) => {
 
   return (
     <>
-      <Header />
       <DarkModeToggle />
       <div className="markdown-layout">
         <Toc headings={headings} />
