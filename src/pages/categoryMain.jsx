@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Components/header/Header";
 import "../style/component/category.css";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const CategoryMain = () => {
   const { category, topic } = useParams();
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ const CategoryMain = () => {
     // http://localhost:3000/develop/basic/html
     if (!topic) return;
 
-    const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${topic}`;
+    const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${category}/${topic}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -53,7 +54,13 @@ const CategoryMain = () => {
             {posts.map((post) => {
               const { date, title } = parsePostName(post.name);
               return (
-                <div key={post.name} className="post-item">
+                <div
+                  key={post.name}
+                  className="post-item"
+                  onClick={() =>
+                    navigate(`/post/${category}/${topic}/${post.name}`)
+                  }
+                >
                   <img
                     src={`/images/category/${topic}.png`}
                     alt={`${topic} thumbnail`}

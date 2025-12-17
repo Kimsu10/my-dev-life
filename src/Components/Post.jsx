@@ -14,8 +14,9 @@ import "../style/darkMode.css";
 // import "../style/table.css";
 import "../style/pre.css";
 import CodeBlock from "./CodeBlock";
+import Header from "./header/Header";
 
-const Post = ({ category, fileName }) => {
+const Post = ({ category, topic, fileName }) => {
   const [content, setContent] = useState("");
   const [headings, setHeadings] = useState([]);
   const [modalImage, setModalImage] = useState(null);
@@ -25,7 +26,9 @@ const Post = ({ category, fileName }) => {
     // const url = `/posts/${category}/${fileName}.md`;
 
     // github API 정확한 경로
-    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${fileName}.md`;
+    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${topic}/${fileName}.md`;
+
+    console.log(url);
 
     console.log("category:", category);
     console.log("fileName:", fileName);
@@ -40,6 +43,7 @@ const Post = ({ category, fileName }) => {
 
   return (
     <>
+      <Header />
       <DarkModeToggle />
       <div className="markdown-layout">
         <Toc headings={headings} />

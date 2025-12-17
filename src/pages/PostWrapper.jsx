@@ -4,7 +4,7 @@ import "../style/default.css";
 import Header from "../Components/header/Header";
 
 const PostPage = () => {
-  const { category, name } = useParams();
+  const { category, topic, name } = useParams();
 
   if (!category || !name) return <div>잘못된 접근입니다.</div>;
 
@@ -14,13 +14,12 @@ const PostPage = () => {
 
   return (
     <>
-      <Header />
       <div style={{ maxWidth: 800, margin: "0 auto", padding: 20 }}>
         <div className="flex-column-container" style={{ height: 40 }}>
           <h1 className="page-title">{title}</h1>
           <p className="written-date">{date}</p>
         </div>
-        <Post category={category} fileName={name} />
+        <Post category={category} topic={topic} fileName={name} />
       </div>
     </>
   );
