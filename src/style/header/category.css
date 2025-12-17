@@ -1,11 +1,17 @@
 .category-container {
   width: 100%;
-  max-width: 72rem;
+  max-width: 916px;
   margin: 2rem 0;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: inset 0px 0px 10px #666;
   background-color: #ffff;
+}
+
+.category-container a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .category-grid {

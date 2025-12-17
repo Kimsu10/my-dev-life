@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../style/header/category.css";
 
-const Develop = () => {
+const Develop = ({ onSelect }) => {
   const categories = [
     {
       title: "CS",
@@ -20,16 +20,16 @@ const Develop = () => {
       items: ["Node.js", "Spring", "Django"],
     },
     {
+      title: "DBMS",
+      items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
+    },
+    {
       title: "Test",
       items: ["Jest", "Cypress", "JUnit"],
     },
     {
       title: "IDE",
       items: ["VS Code", "IntelliJ"],
-    },
-    {
-      title: "DBMS",
-      items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
     },
   ];
 
@@ -40,10 +40,7 @@ const Develop = () => {
           <div
             key={category.title}
             className={`category-card ${
-              category.title === "CS" ||
-              category.title === "Basic" ||
-              category.title === "Language" ||
-              category.title === "Framework"
+              ["CS", "Basic", "Language"].includes(category.title)
                 ? "first-row"
                 : ""
             }`}
@@ -56,6 +53,10 @@ const Develop = () => {
                     to={`/develop/${category.title.toLowerCase()}/${item
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onSelect();
+                    }}
                   >
                     {item}
                   </Link>

@@ -4,41 +4,29 @@ import Develop from "./Develop";
 import DevOps from "./DevOps";
 
 const Header = () => {
-  const [activeToolbar, setActiveToolbar] = useState(null);
-  const [hoverToolbar, setHoverToolbar] = useState(null);
+  const [openToolbar, setOpenToolbar] = useState(null);
 
-  const handleToolbarClick = (type) => {
-    setActiveToolbar((prev) => (prev === type ? null : type));
+  const closeToolbar = () => {
+    setOpenToolbar(null);
   };
-  const visibleToolbar = hoverToolbar ?? activeToolbar;
+
   return (
     <div>
       <header className="header">
         <div className="header-inner">
           <div className="header-left">
-            <div class="circle-loader">목록</div>
+            <div className="circle-loader">목록</div>
+
             <button
-              className={`toolbar ${
-                activeToolbar === "develop" || hoverToolbar === "develop"
-                  ? "active"
-                  : ""
-              }`}
-              onClick={() => handleToolbarClick("develop")}
-              // onMouseEnter={() => setHoverToolbar("develop")}
-              // onMouseLeave={() => setHoverToolbar(null)}
+              className={`toolbar ${openToolbar === "develop" ? "active" : ""}`}
+              onMouseEnter={() => setOpenToolbar("develop")}
             >
               Develop
             </button>
 
             <button
-              className={`toolbar ${
-                activeToolbar === "devops" || hoverToolbar === "devops"
-                  ? "active"
-                  : ""
-              }`}
-              onClick={() => handleToolbarClick("devops")}
-              // onMouseEnter={() => setHoverToolbar("devops")}
-              // onMouseLeave={() => setHoverToolbar(null)}
+              className={`toolbar ${openToolbar === "devops" ? "active" : ""}`}
+              onMouseEnter={() => setOpenToolbar("devops")}
             >
               DevOps
             </button>
@@ -51,16 +39,15 @@ const Header = () => {
           </div>
 
           <nav className="header-right">
-            <span>
-              <img src="/images/blog/search.png" className="search-img" />
-            </span>
+            <img src="/images/blog/search.png" className="search-img" />
           </nav>
         </div>
       </header>
 
-      <div className="category-wrapper">
-        {visibleToolbar === "develop" && <Develop />}
-        {visibleToolbar === "devops" && <DevOps />}
+      {/* hover 영역 유지 */}
+      <div className="category-wrapper" onMouseLeave={closeToolbar}>
+        {openToolbar === "develop" && <Develop onSelect={closeToolbar} />}
+        {openToolbar === "devops" && <DevOps onSelect={closeToolbar} />}
       </div>
     </div>
   );
