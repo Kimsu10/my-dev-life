@@ -5,7 +5,7 @@ const Develop = ({ onSelect }) => {
   const categories = [
     {
       title: "CS",
-      items: ["HTTP", "Network", "IT", "Design Pattern"],
+      items: ["HTTP", "Network", "IT", "DesignPattern"],
     },
     {
       title: "Basic",
@@ -21,7 +21,7 @@ const Develop = ({ onSelect }) => {
     },
     {
       title: "DBMS",
-      items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
+      items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Cache"],
     },
     {
       title: "Test",
@@ -51,7 +51,6 @@ const Develop = ({ onSelect }) => {
                 <li key={item}>
                   <Link
                     to={`/develop/${category.title.toLowerCase()}/${item
-                      .toLowerCase()
                       .replace(/\s+/g, "-")}`}
                     onClick={(e) => {
                       e.stopPropagation();

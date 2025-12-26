@@ -31,6 +31,7 @@ const Post = ({ category, topic, fileName }) => {
     console.log(url);
 
     console.log("category:", category);
+    console.log("topic", topic);
     console.log("fileName:", fileName);
 
     fetch(url)
