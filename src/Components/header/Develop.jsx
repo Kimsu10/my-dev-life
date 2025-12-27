@@ -28,8 +28,12 @@ const Develop = ({ onSelect }) => {
       items: ["Jest", "Cypress", "JUnit"],
     },
     {
+      title: "FRONTEND",
+      items: ["React", "Vue"],
+    },
+    {
       title: "IDE",
-      items: ["VS Code", "IntelliJ"],
+      items: ["VsCode", "IntelliJ"],
     },
   ];
 
@@ -50,8 +54,10 @@ const Develop = ({ onSelect }) => {
               {category.items.map((item) => (
                 <li key={item}>
                   <Link
-                    to={`/develop/${category.title.toLowerCase()}/${item
-                      .replace(/\s+/g, "-")}`}
+                    to={`/develop/${category.title.toLowerCase()}/${item.replace(
+                      /\s+/g,
+                      "-"
+                    )}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       onSelect();

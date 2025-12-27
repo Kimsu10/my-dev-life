@@ -16,7 +16,7 @@ import "../style/pre.css";
 import CodeBlock from "./CodeBlock";
 import Header from "./header/Header";
 
-const Post = ({ category, topic, fileName }) => {
+const Post = ({ category, subCategory, topic, fileName }) => {
   const [content, setContent] = useState("");
   const [headings, setHeadings] = useState([]);
   const [modalImage, setModalImage] = useState(null);
@@ -26,7 +26,7 @@ const Post = ({ category, topic, fileName }) => {
     // const url = `/posts/${category}/${fileName}.md`;
 
     // github API 정확한 경로
-    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${topic}/${fileName}.md`;
+    const url = `https://raw.githubusercontent.com/Kimsu10/my-dev-life/main/src/posts/${category}/${subCategory}/${topic}/${fileName}.md`;
 
     console.log(url);
 

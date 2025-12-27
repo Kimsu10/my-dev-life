@@ -8,9 +8,18 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/post/:category/:topic/:name" element={<PostWrapper />} />
-        <Route path="/develop/:category/:topic" element={<CategoryMain />} />
-        <Route path="/devops/:category/:topic" element={<CategoryMain />} />
+        <Route
+          path="/post/:category/:subCategory/:topic/:name"
+          element={<PostWrapper />}
+        />
+        <Route
+          path="/:category/:subCategory/:topic"
+          element={<CategoryMain />}
+        />
+        <Route
+          path="/:category/:subCategory/:topic"
+          element={<CategoryMain />}
+        />
       </Routes>
     </BrowserRouter>
   );
