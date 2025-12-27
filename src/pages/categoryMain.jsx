@@ -4,32 +4,35 @@ import "../style/component/category.css";
 import { useEffect, useState } from "react";
 
 const CategoryMain = () => {
-  const { category, topic } = useParams();
+  const { category, subCategory, topic } = useParams();
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!topic || !category) return;
     // const url = "https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/html"; //요청 성공 url
     // http://localhost:3000/develop/basic/html
-    if (!topic) return;
-
-    const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${category}/${topic}`;
+    const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${category}/${subCategory}/${topic}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        if (!Array.isArray(data)) {
+          setPosts([]);
+          return;
+        }
+
         const mdFiles = data
-          ?.filter((item) => item.type === "file" && item.name.endsWith(".md"))
+          .filter((item) => item.type === "file" && item.name.endsWith(".md"))
           .map((item) => ({
             name: item.name.replace(".md", ""),
           }));
 
-        console.log(mdFiles); // 추후 받아온 배열들을 DB 에 저장해서 사용하자.(토큰 없이 1시간에 60회 제한)
-        setPosts(mdFiles || []);
+        setPosts(mdFiles);
       })
       .catch(console.error);
-  }, []);
+  }, [category, topic]);
 
   const parsePostName = (name) => {
     const [year, month, day, ...titleParts] = name.split("-");

@@ -42,6 +42,7 @@ const DevOps = ({ onSelect }) => {
             <h2>{category.title}</h2>
             <ul>
               {category.items.map((item) => (
+<<<<<<< HEAD
                 <Link
                   key={item}
                   to={`/devops/${category.title.toLowerCase()}/${item
@@ -55,6 +56,21 @@ const DevOps = ({ onSelect }) => {
                 >
                   <li>{item}</li>
                 </Link>
+=======
+                <li key={item}>
+                  <Link
+                    to={`/devops/${category.title.toLowerCase()}/${item
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onSelect();
+                    }}
+                  >
+                    {item}
+                  </Link>
+                </li>
+>>>>>>> fb2ecbc2adf828f63c3db833946a5fa52bd6edcc
               ))}
             </ul>
           </div>

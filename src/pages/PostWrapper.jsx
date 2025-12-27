@@ -4,7 +4,7 @@ import "../style/default.css";
 import Header from "../Components/header/Header";
 
 const PostPage = () => {
-  const { category, topic, name } = useParams();
+  const { category, subCategory, topic, name } = useParams();
 
   if (!category || !name) return <div>잘못된 접근입니다.</div>;
 
@@ -19,7 +19,12 @@ const PostPage = () => {
           <h1 className="page-title">{title}</h1>
           <p className="written-date">{date}</p>
         </div>
-        <Post category={category} topic={topic} fileName={name} />
+        <Post
+          category={category}
+          subCategory={subCategory}
+          topic={topic}
+          fileName={name}
+        />
       </div>
     </>
   );
