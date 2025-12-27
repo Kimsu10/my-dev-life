@@ -21,11 +21,7 @@ const Develop = ({ onSelect }) => {
     },
     {
       title: "DBMS",
-<<<<<<< HEAD
-      items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Redis"],
-=======
       items: ["Database", "MySQL", "PostgreSQL", "MongoDB", "Cache"],
->>>>>>> fb2ecbc2adf828f63c3db833946a5fa52bd6edcc
     },
     {
       title: "Test",
@@ -35,13 +31,10 @@ const Develop = ({ onSelect }) => {
       title: "FRONTEND",
       items: ["React", "Vue"],
     },
-<<<<<<< HEAD
-=======
     {
       title: "IDE",
       items: ["VsCode", "IntelliJ"],
     },
->>>>>>> fb2ecbc2adf828f63c3db833946a5fa52bd6edcc
   ];
 
   return (
@@ -59,24 +52,9 @@ const Develop = ({ onSelect }) => {
             <h2>{category.title}</h2>
             <ul>
               {category.items.map((item) => (
-<<<<<<< HEAD
-                <Link
-                  key={item}
-                  to={`/develop/${category.title.toLowerCase()}/${item
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
-                  className="category-link"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelect();
-                  }}
-                >
-                  <li>{item}</li>
-                </Link>
-=======
                 <li key={item}>
                   <Link
-                    to={`/develop/${category.title.toLowerCase()}/${item.replace(
+                    to={`/develop/${category.title}/${item.replace(
                       /\s+/g,
                       "-"
                     )}`}
@@ -88,7 +66,6 @@ const Develop = ({ onSelect }) => {
                     {item}
                   </Link>
                 </li>
->>>>>>> fb2ecbc2adf828f63c3db833946a5fa52bd6edcc
               ))}
             </ul>
           </div>

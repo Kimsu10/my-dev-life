@@ -16,10 +16,6 @@ const App = () => {
           path="/:category/:subCategory/:topic"
           element={<CategoryMain />}
         />
-        <Route
-          path="/:category/:subCategory/:topic"
-          element={<CategoryMain />}
-        />
       </Routes>
     </BrowserRouter>
   );

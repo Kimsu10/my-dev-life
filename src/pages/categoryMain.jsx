@@ -10,9 +10,8 @@ const CategoryMain = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!topic || !category) return;
-    // const url = "https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/html"; //요청 성공 url
-    // http://localhost:3000/develop/basic/html
+    if (!topic || !category || !subCategory) return;
+    // 레포지토리 폴더명(대소문자)와 구조랑 반드시 일치해야함
     const url = `https://api.github.com/repos/Kimsu10/my-dev-life/contents/src/posts/${category}/${subCategory}/${topic}`;
 
     fetch(url)
@@ -32,7 +31,7 @@ const CategoryMain = () => {
         setPosts(mdFiles);
       })
       .catch(console.error);
-  }, [category, topic]);
+  }, [category, subCategory, topic]);
 
   const parsePostName = (name) => {
     const [year, month, day, ...titleParts] = name.split("-");
@@ -61,7 +60,9 @@ const CategoryMain = () => {
                   key={post.name}
                   className="post-item"
                   onClick={() =>
-                    navigate(`/post/${category}/${topic}/${post.name}`)
+                    navigate(
+                      `/post/${category}/${subCategory}/${topic}/${post.name}`
+                    )
                   }
                 >
                   <img

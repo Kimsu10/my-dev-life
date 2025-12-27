@@ -4,7 +4,7 @@ import "../../style/header/category.css";
 const DevOps = ({ onSelect }) => {
   const categories = [
     {
-      title: "CLOUD",
+      title: "Cloud",
       items: ["AWS", "GCP", "OCI", "SCP", "NCP"],
     },
     {
@@ -32,7 +32,7 @@ const DevOps = ({ onSelect }) => {
           <div
             key={category.title}
             className={`category-card ${
-              ["CLOUD", "Management", "WebServer", "Container"].includes(
+              ["Cloud", "Management", "WebServer", "Container"].includes(
                 category.title
               )
                 ? "first-row"
@@ -42,26 +42,12 @@ const DevOps = ({ onSelect }) => {
             <h2>{category.title}</h2>
             <ul>
               {category.items.map((item) => (
-<<<<<<< HEAD
-                <Link
-                  key={item}
-                  to={`/devops/${category.title.toLowerCase()}/${item
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
-                  className="category-link"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelect();
-                  }}
-                >
-                  <li>{item}</li>
-                </Link>
-=======
                 <li key={item}>
                   <Link
-                    to={`/devops/${category.title.toLowerCase()}/${item
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
+                    to={`/devops/${category.title}/${item.replace(
+                      /\s+/g,
+                      "-"
+                    )}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       onSelect();
@@ -70,7 +56,6 @@ const DevOps = ({ onSelect }) => {
                     {item}
                   </Link>
                 </li>
->>>>>>> fb2ecbc2adf828f63c3db833946a5fa52bd6edcc
               ))}
             </ul>
           </div>
